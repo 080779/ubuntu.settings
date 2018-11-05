@@ -23,3 +23,9 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 grant all privileges on *.* to root@"%" identified by "root" with grant option;
 
 flush privileges;
+
+quit;
+
+（重启mysql服务）
+
+sudo service mysql restart
