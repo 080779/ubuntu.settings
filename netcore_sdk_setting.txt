@@ -21,12 +21,10 @@ wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-pr
 
 sudo dpkg -i packages-microsoft-prod.deb
 
-Install .NET SDK
-
-Update the products available for installation, then install the .NET SDK.
-
 ------------------------------shell
 
+Install .NET SDK
+Update the products available for installation, then install the .NET SDK.
 In your command prompt, run the following commands:
 
 ------------------------------shell
