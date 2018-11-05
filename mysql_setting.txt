@@ -1,0 +1,25 @@
+（ubuntu安装mysql）
+
+sudo apt-get install mysql-server
+
+（ubuntu安装mysql客户端）
+
+sudo apt-get install mysql-client
+
+（ubuntu安装mysql ssl）
+
+sudo mysql_ssl_rsa_setup --uid=mysql
+
+（ubuntu查看ssl安装是否成功）
+
+sudo find /var/lib/mysql -name '*.pem' -ls
+
+（把 bind-address = 127.0.0.1 注释掉。远程连接设置）（安装vim）
+
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+（mysql下，远程连接设置）
+
+grant all privileges on *.* to root@"%" identified by "root" with grant option;
+
+flush privileges;
