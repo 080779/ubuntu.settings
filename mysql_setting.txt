@@ -1,4 +1,4 @@
-（ubuntu安装mysql）
+（ubuntu安装mysql）(在aws上的18版本有时会出现没有设置mysql用户名和密码的选项)
 
 sudo apt-get install mysql-server
 
@@ -6,7 +6,7 @@ sudo apt-get install mysql-server
 
 sudo apt-get install mysql-client
 
-（ubuntu安装mysql ssl）
+（ubuntu安装mysql ssl）（netcore开发需要mysql安装了ssl才能连接）
 
 sudo mysql_ssl_rsa_setup --uid=mysql
 
@@ -29,3 +29,7 @@ quit;
 （重启mysql服务）
 
 sudo service mysql restart
+
+（查看服务器是否开启）
+
+netstat -tlp

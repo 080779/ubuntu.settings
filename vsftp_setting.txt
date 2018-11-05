@@ -1,0 +1,16 @@
+openssh配置，这个配置是在本地linux服务器，或者虚拟机linux服务器配置
+
+（安装openssh服务）
+
+sudo apt-get install openssh-server
+
+
+（重启openssh服务）
+
+sudo service ssh restart
+
+（查看服务器是否开启）
+
+netstat -tlp
+
+（windows下使用putty，通过ssh连接到linux）
