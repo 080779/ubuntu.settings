@@ -1,0 +1,53 @@
+（nginx服务器配置）
+
+（安装nginx服务器）
+
+sudo apt-get install nginx
+
+（启动 nginx 服务器）
+
+sudo service nginx restart
+
+（打开编辑ngnix的默认配置文件）
+
+sudo vim /etc/nginx/sites-available/default
+
+（编辑成如下的配置）
+
+server {
+	listen 80;
+	location / {
+		proxy_pass http://localhost:5000;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection keep-alive;
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+}
+
+（使 Nginx 配置生效）
+
+sudo nginx -s reload
+
+（Nginx 负载均衡的配置）
+
+upstream myserver{
+	server localhost:5000;
+}
+
+server {
+	listen 80;
+	location / {
+		proxy_pass http://myserver;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection keep-alive;
+		proxy_set_header Host $host;
+		proxy_cache_bypass $http_upgrade;
+	}
+}
+
+（使 Nginx 配置生效）
+
+sudo nginx -s reload

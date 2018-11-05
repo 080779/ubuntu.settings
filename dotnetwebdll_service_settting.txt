@@ -1,0 +1,29 @@
+配置supervisor守护进程自动启动 dotnet Web.dll，相当于 windows 的“服务”
+
+（安装supervisor守护进程程序）
+
+sudo apt-get install supervisor
+
+（在 /etc/supervisor/confg.d/ 目录下新建一个配置文件sys_task.conf（当前项目名称））
+
+sudo vim /ect/supervisor/confg.d/sys_task.conf
+
+（sys_task.conf配置文件中输入下面的内容）
+
+[program:sys_task_service]
+command=dotnet Web.dll
+directory=/home/ubuntu/www/core_task
+environment=ASPNETCORE__ENVIRONMENT=Production
+user=ubuntu
+stopsignal=INT
+autostart=true
+autorestart=true
+startsecs=1
+stderr_logfile=/var/log/sys_task.err.log
+stdout_logfile=/var/log/sys_task.out.log
+
+（user=ubuntu，默认要最高权限用户）
+
+（重启supervisor守护进程服务）
+
+sudo service supervisor restart
