@@ -1,0 +1,7 @@
+System.TypeInitializationException: The type initializer for 'System.DrawingCore.GDIPlus' threw an exception. ---> System.DllNotFoundException: Unable to load DLL 'gdiplus': The specified module or one of its dependencies could not be found.
+
+解决方法：
+
+sudo apt-get install libgdiplus
+
+sudo cp /usr/lib/libgdiplus.so /home/ubuntu/.nuget/packages/system.security.permissions/4.4.1/lib/netstandard2.0
